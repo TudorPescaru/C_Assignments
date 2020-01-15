@@ -1,0 +1,64 @@
+Copyright 2019 Pescaru Tudor Mihai
+
+Problema 1 - On the fly analysis
+
+Pentru aceasta problema, am verificat mai intai daca datele de intrare contin 
+minim 3 copaci, caz in care, am ales sa citesc primele doua inaltimi de copaci 
+in variabilele x_i_anterior si X_i, iar mai apoi, plecand de la al treilea pas,
+ sa citesc o a treia inaltime de copac, in variablia x_i_urmator. In cazul in c
+are numarul dat de copaci era mai mic decat 3, pentru suma, media aritmetica, 
+maximul de pe pozitie impara si minimul de pe pozitie para afisam valoarea 0.
+La finalul fiecarui proces de citire si prelucrare am schimbat valorile lui 
+x_i_anterior cu x_i si pe a lui x_i cu cea a lui x_i_urmator. Pentru fiecare 
+pas, inaltimea prelucrata pentru testul de copac special este cea din variabila
+ x_i.
+Media aritmetica este calculata la fiecare pas in functie de media aritmetica 
+precedenta pentru o mai buna acuratete a zecimalelor. Pentru minimul si maximul 
+de pe pozitie para si respectiv impara am verificat paritatea indicelui ce 
+marcheaza pasul de citire si am comparat cu 0 pentru maxim si cu valoarea 
+maxima pe care inaltimea copacului o putea avea pentru minim. De asememnea am 
+urmarit si schimbarea acestor valori, iar in cazul in care nu existau copaci 
+speciali pe indici pari sau copaci speciali pe indici impari am afisat -1 pentru
+ minim respectiv -1 pentru maxim.
+
+Problema 2 - Proprietati ale numerelor naturale
+
+In rezolvarea acestei probleme am creeat doua functii. Una intitulata descresc 
+care primeste un  numar si il rescrie aranjand cifrele sale in ordine 
+descrescatoare si o functie numita cresc care rescrie numarul primit cu cifrele
+ ordonate in ordine crescatoare si eliminand toate aparitiile cifrei 0. Mai apoi
+ se calculeaza diferenta dintre cele doua numere formate iar rezultatul se 
+retine in vector. Pentru numarul rezultat se aplica acelasi proces. Acest proces
+ se repeta pana cand, in urma diferentei se obtine un  numar care se regaseste 
+in vector.
+Din acel moment se trece prin vector si se determina inceputul perioadei 
+comparand fiecare numar cu ultimul din vector. Toate numerele ce apar inaintea 
+inceperii perioadei se numara iar numarul acestora se afiseaza. Mai apoi se 
+afiseaza celelalte numere din vector cu exceptia ultimului, acestea fiind 
+numerele ce apartin perioadei.
+
+Problema 3 - Perfectionarea punctajelor
+
+Pentru a rezolva aceasta problema am ales sa stochez nota si respectiv numarul 
+de credite de la fiecare materie in cate un vector separat. Mai apoi am sortat 
+acesti doi vectori in ordinea descrescatoare a punctelor ce ar putea fi 
+obtinute prin majorarea notelor diferite de 10 la nota 10. Dupa acest pas, am 
+calculat numarul curent de puncte ce se obtin, dupa care am majorat progresiv 
+fiecare nota in ordinea stabilita in vectori si am adaugat punctele noi 
+obtinute la total, in acelasi timp numarand fiecare majorare pentru a afisa 
+numarul acestora la final. In cazul in care toate notele au fost majorate iar 
+numarul minim de puncte nu a fost atins se afiseaza -1.
+
+Problema 4 -Nonogram checker 
+
+In cadrul acestei rezolvari am ales sa stochez fiecare regula pentru fiecare 
+linie sau coloana in cate o matrice separata, cate un set de reguli pe fiecare 
+linie. Aceste operatiuni au fost realizate prin intermediul functiilor line_mat
+, respectiv column_mat. Mai apoi am citit matricea prin intermediul functiei 
+cit_mat. Pentru fiecare linie am utilizat functia line_check pentru a verifica 
+daca linia curenta respecta regulile de pe linia corespunzatoare din matricea 
+de reguli pentru linie. In cazul in care toate liniile au respectat regulile 
+trecem la verificare coloanelor prin acelasi mod folosind functia cloumn_check 
+care compara coloana curenta cu regulile de pe linia aferenta din matricea de 
+reguli pentru coloane. In cazul in care toate coloanele sunt corecte se va 
+afisa mesajul "Corect" sau in caz contrar "Eroare".

@@ -1,0 +1,52 @@
+Copyright 2019 Pescaru Tudor Mihai 315CA
+
+- Pentru inceput am initalizat intregul cu 0 si mai apoi am completat campurile
+statice magic, typeflag, devmajor si respectiv devminor.
+
+Create
+
+- Pentru completarea header-ului am ales sa parcurg mai intai fisierul
+files.txt linie cu linie. Pentru fiecare linie parcursa impart elementele pe
+cuvinte si le prelucrez individual. Din acest fisier am extras informatiile
+pentru campurile mode, uname, gname, size, mtime, name si linkname. Pentru
+permisiunile din cadrul campului mode am prelucrat fiecare grup de permisiuni
+de tip r/w/x si am calculat valorile corespunzatoare in octal. Pentru campul
+mtime am prelucrat individual anul, luna, ziua, ora, minutul si secunda iar mai
+apoi am introdus toate aceste date in structura pusa la dispozitie de time.h si
+de asemenea de functia ce permite calcularea numarului de secunde de la UNIX
+EPOCH. Datele din campul name si size au fost de asemenea salvate si in
+variabile externe uniunii pentru utilizarea ulterioara. Dupa parcurgerea
+fisierului files.txt am trecut la parcurgerea fisierului usermap.txt linie cu
+linie, cautand linia ce continea username-ul determinat anterior si mai apoi la
+determinarea uid-ului si gid-ului aferente acelui username. Ultimul pas din
+completarea header-ului a fost calcularea checksum-ului, realizata prin
+parcurgerea uniunii byte cu byte folosind charptr. Dupa completarea header-ului
+am trecut la scrierea acestuia intr-un fisier de tip tar si mai apoi am deschis
+fisierul al carui header a fost parcurs si am inceput scierea in cadrul arhivei
+a continutului acestuia avand grija ca acesta sa fie completat cu 0 pana la o
+dimensiune divizibila cu 512. Tot acest proces se repeta pentru fiecare fisier
+din files.txt.
+
+List
+
+- Pentru implementarea acestei functii am trecut prin fisierul arhiva, prin
+parcurgerea header-ului si continutului fiecarui fisier. Mai intai am aflat
+numele fiserului curent si l-am afisat. Dupa, folosind faptul ca header-ul are
+o dimensiune statica si stiind numarul de octeti intre campul nume si campul
+size am parcurs pana la acest camp si am aflat dimensiunea fisierului curent.
+Mai apoi am parcurs pana la finalul header-ului si ,folosind dimensiunea aflata
+anteriorm tot continutul fisierului curent, astfel ajungand la inceputul
+header-ului urmator. Din acel punct toate operatiile anterioare se repeta pana
+se ajunge la secventa de 512 octeti de 0 ce marcheaza finalul arhivei.
+
+Extract
+
+- Pentru implementarea acestei functii am ales sa folosesc, in primul rand,
+acelasi algoritm ca la functia list cu modificarea ca, in cazul in care
+fisierul pe care doresc sa il extrag apare in cardul arhivei, parcurgerea
+fisierului arhiva se opreste si este retinut numarul de octeti parcursi.
+Mai apoi creez noul fisier extractat si parcurg fisierului arhiva pana la
+numarul determinat anterior la care se mai adauga 512, dimensiunea header-ului.
+Din acel moment incepe parcurgerea continutului fisierului si scrierea acestuia
+in fisierul extractat, folosind dimensiunea fisierului, din header, pentru a
+inceta parcurgerea inainte de inceperea octetilor de 0 cu rol de "padding".

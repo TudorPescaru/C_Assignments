@@ -1,0 +1,36 @@
+Copyright 2019 Pescaru Tudor Mihai 315CA
+
+Prezentare generala - citirea matricei a fost realizata utilizand o matrice de
+tip char, alocata dinamic, deoarece un char are dimensiunea de un byte, fapt
+ce, impreuna cu endianness-ul de tip little-endian a facilitat impartirea byte
+cu byte a numerelor de tip intreg, cu dimensiune de 4 bytes, in ordine corecta.
+
+Task 1 - Pentru a calcula media aritmetica am parcurs matricea si am adunat la
+o suma valoarea fiecarui byte ce se afla pe prima linie, pe ultima linie, pe
+prima coloana si de asemenea pe ultima pozitie a fiecarei linii, avand de
+asemenea grija ca valoarea colturilor sa nu apara de doua ori. La fiecare byte
+prelucrat se incrementa valoarea unui contor. La final media aritmetica se
+obtine impartind suma la valoarea contorului, iar apoi se afiseaza.
+
+Task 2 - Mai intai se vor citi numarul de operatii, tipul fiecarei operatii,
+tipul de date utilizat, numarul liniei si indexul pozititei pe aceea linie.
+Pentru fiecare tip de date se va determina numarul de bytes aferent. Pentru
+fiecare operatie se va calcula indicele in bytes. Pentru operatia de modify se
+va citi noua valoare, se va convertii in format byte-cu-byte si se va adauga
+in matrice. In cazul in care valoarea se adauga pe o pozitie neexistenta pana
+in acel moment linia se va realoca dinamic cu noua dimensiune si se va umple cu
+0 pana la pozitia valorii adaugate. Pentru operatia de delete se vor face 0 un
+de bytes determinat de tipul de date oferit. Pentru operatia de swap se vor
+inversa atatia bytes cati sunt necesari in functie de tipul de date. Pentru un
+integer se vor inversa byte-ul 1 cu 4 si 2 cu 3 iar pentru short doar byte-ul 1
+cu 2. La final se va afisa matrice in format cu 4 bytes pentru fiecare valoare.
+
+Task 3 - Se va aplica un algoritm de fill, prin intermediul unei functii
+recursive de tip void ce va naviga pe patru directii, in sus, in jos, la stanga
+si respectiv la dreapta. Acest lucru se va realiza cat timp indicii se vor afla
+in limitele matricei. Pentru fiecare byte de 0 gasit un contor se va incrementa
+iar aces contor va fi returnat la terminarea rularii funtiei. Fiecare element
+cu 0 gasit va fi marcat prin schimbarea valorii acestuia pentru a nu fi parcurs
+de apelari ulterioare ale functiei. Se va tine cont de dimensiunea cea mai mare
+returnata dar si de prima pozitie de la care gaura neagra respectiva incepe. La
+final acestea se vor afisa.
