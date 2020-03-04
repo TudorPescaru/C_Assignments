@@ -1,7 +1,7 @@
 Copyright 2019 Pescaru Tudor Mihai 315CA
 
-- Pentru inceput am initalizat intregul cu 0 si mai apoi am completat campurile
-statice magic, typeflag, devmajor si respectiv devminor.
+- Pentru inceput am initalizat intregul header cu 0 si mai apoi am completat 
+campurile statice magic, typeflag, devmajor si respectiv devminor.
 
 Create
 
